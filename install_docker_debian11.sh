@@ -6,7 +6,7 @@ set -e
 # Step 1: Install Prerequisites
 echo "Updating package index and installing prerequisites..."
 sudo apt update
-sudo apt install -y apt-transport-https ca-certificates curl gnupg lsb-release
+sudo apt install -y apt-transport-https ca-certificates curl gnupg lsb-release unzip wget
 
 # Step 2: Add Docker’s Official GPG Key
 echo "Adding Docker's official GPG key..."
@@ -40,5 +40,12 @@ sudo curl -L "https://github.com/docker/compose/releases/download/v2.27.0/docker
 sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 
+# Step 7: Install Terraform on Ubuntu/Debian
+echo "Installing Terraform..."
+wget https://releases.hashicorp.com/terraform/1.8.5/terraform_1.8.5_linux_amd64.zip
+unzip terraform_1.8.5_linux_amd64.zip
+sudo mv terraform /usr/local/bin/
+terraform --version
+
 # Inform the user to log out and log back in
-echo "Docker installation completed. Please log out and log back in to apply the user group changes."
+echo "Docker and Terraform installation completed. Please log out and log back in to apply the user group changes."
