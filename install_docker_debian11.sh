@@ -6,7 +6,7 @@ set -e
 # Step 1: Install Prerequisites
 echo "Updating package index and installing prerequisites..."
 sudo apt update
-sudo apt install -y apt-transport-https ca-certificates curl gnupg lsb-release unzip wget
+sudo apt install -y apt-transport-https ca-certificates curl gnupg lsb-release unzip wget software-properties-common
 
 # Step 2: Add Docker’s Official GPG Key
 echo "Adding Docker's official GPG key..."
@@ -47,5 +47,12 @@ unzip terraform_1.8.5_linux_amd64.zip
 sudo mv terraform /usr/local/bin/
 terraform --version
 
+# Step 8: Install Ansible
+echo "Installing Ansible..."
+sudo apt-add-repository --yes --update ppa:ansible/ansible
+sudo apt update
+sudo apt install -y ansible
+ansible --version
+
 # Inform the user to log out and log back in
-echo "Docker and Terraform installation completed. Please log out and log back in to apply the user group changes."
+echo "Docker, Terraform, and Ansible installation completed. Please log out and log back in to apply the user group changes."
