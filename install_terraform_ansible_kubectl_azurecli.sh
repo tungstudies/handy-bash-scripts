@@ -54,5 +54,11 @@ sudo apt-get update
 sudo apt-get install -y azure-cli
 az --version
 
+# Step 5: Install Ansible
+echo "Installing Ansible..."
+sudo apt update
+sudo apt install -y ansible
+ansible --version
+
 # Inform the user of completion
 echo "Terraform, Ansible, kubectl, and Azure CLI installation completed."
