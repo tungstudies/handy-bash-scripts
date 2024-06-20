@@ -16,14 +16,7 @@ unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip
 sudo mv terraform /usr/local/bin/
 terraform --version
 
-# Step 3: Install Ansible
-echo "Installing Ansible..."
-sudo apt-add-repository --yes --update ppa:ansible/ansible
-sudo apt update
-sudo apt install -y ansible
-ansible --version
-
-# Step 4: Install kubectl
+# Step 3: Install kubectl
 echo "Installing kubectl..."
 
 # Download the latest stable version of kubectl
@@ -39,7 +32,7 @@ sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 # Test to ensure the version you installed is up-to-date
 kubectl version --client
 
-# Step 5: Install Azure CLI
+# Step 4: Install Azure CLI
 echo "Installing Azure CLI..."
 
 # Download and install the Microsoft signing key
